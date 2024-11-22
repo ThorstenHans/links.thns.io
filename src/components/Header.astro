@@ -1,0 +1,35 @@
+---
+import Social from './Social.astro';
+
+export interface Props {
+	subtitle: string;
+	title: string;
+	note: string;
+}
+
+const { subtitle, title, note } = Astro.props;
+const socials = await Astro.glob("./../pages/socials/*.md");
+---
+
+<div>
+    <div class="mx-auto max-w-7xl py-16 px-4 sm:py-10 sm:px-6 lg:px-8">
+        <div class="text-center">
+
+            <img class="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56" src="thorsten-hans.jpg" alt="">
+            
+            <p class="mt-5 text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl lg:text-5xl">
+                {title}
+            </p>
+
+            <h2 class="text-xl font-semibold text-sky-400 mt-2">
+                {subtitle}
+            </h2>
+
+            <p class="mx-auto mt-5 max-w-xl text-xl text-gray-500">
+                {note}
+            </p>
+        
+            <Social socials={socials} />
+        </div>
+    </div>
+</div>
